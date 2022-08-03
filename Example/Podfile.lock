@@ -1,0 +1,16 @@
+PODS:
+  - BNActionSheet (0.1.0)
+
+DEPENDENCIES:
+  - BNActionSheet (from `../`)
+
+EXTERNAL SOURCES:
+  BNActionSheet:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BNActionSheet: b871546a71b6f16c62b4ea92ea3f551d341f13b0
+
+PODFILE CHECKSUM: b1aa1c6ff3f084773f4bd157707e0d9ab4122a0f
+
+COCOAPODS: 1.11.2

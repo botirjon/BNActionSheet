@@ -1,0 +1,22 @@
+{
+  "name": "BNActionSheet",
+  "version": "0.1.0",
+  "summary": "A short description of BNActionSheet.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/botirjon/BNActionSheet",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "botirjon": "botirjon.nasridinov@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/botirjon/BNActionSheet.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "BNActionSheet/Classes/**/*"
+}

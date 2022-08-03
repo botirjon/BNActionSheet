@@ -1,0 +1,6 @@
+framework module Pods_BNActionSheet_Example {
+  umbrella header "Pods-BNActionSheet_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
