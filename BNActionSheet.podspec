@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BNActionSheet'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'A short description of BNActionSheet.'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  "An action sheet with the same look as Apple's UIAlertViewController with actionSheet style. Provides the ability to add a custom header at the top."
+  "An action sheet with the same look as Apple's UIAlertController with actionSheet style. Provides the ability to add a custom header at the top."
                        DESC
 
   s.homepage         = 'https://github.com/botirjon/BNActionSheet'

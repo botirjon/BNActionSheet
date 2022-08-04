@@ -7,7 +7,7 @@
 
 ## Description
 
-An action sheet with the same look as Apple's UIAlertViewController with actionSheet style. Provides the ability to add a custom header at the top.
+An action sheet with the same look as Apple's UIAlertController with actionSheet style. Provides the ability to add a custom header at the top.
 
 ## Example
 
