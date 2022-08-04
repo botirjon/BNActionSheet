@@ -9,16 +9,20 @@ import UIKit
 
 internal protocol BNRegularActionsViewInstaller: ViewInstaller {
     var stackView: UIStackView! { get set }
+    var blurView: UIVisualEffectView! { get set }
 }
 
 
 internal extension BNRegularActionsViewInstaller {
     func initSubviews() {
+        let effect = UIBlurEffect.init(style: .light)
+        blurView = UIVisualEffectView.init(effect: effect)
+        
         if let scrollView = mainView as? UIScrollView {
             scrollView.showsVerticalScrollIndicator = false
             scrollView.showsHorizontalScrollIndicator = false
             scrollView.translatesAutoresizingMaskIntoConstraints = false
-//            scrollView.backgroundColor = UIColor.white
+            scrollView.backgroundColor = UIColor.white.withAlphaComponent(0.9)
             scrollView.layer.cornerRadius = 10
         }
         
@@ -31,6 +35,7 @@ internal extension BNRegularActionsViewInstaller {
     }
     
     func addSubviews() {
+        mainView.addSubview(blurView)
         mainView.addSubview(stackView)
     }
     

@@ -34,6 +34,16 @@ internal final class BNActionView: UIControl, BNActionViewInstaller {
     
     var didTap: (() -> Void)?
     
+    override var backgroundColor: UIColor? {
+        didSet {
+            if backgroundColor == .clear {
+                blurView?.isHidden = true
+            } else {
+                blurView?.isHidden = false
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initControl()
@@ -46,6 +56,11 @@ internal final class BNActionView: UIControl, BNActionViewInstaller {
     
     override var intrinsicContentSize: CGSize {
         .init(width: super.intrinsicContentSize.width, height: _contentHeight)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        blurView.frame = self.bounds
     }
     
     private func initControl() {
@@ -87,7 +102,6 @@ fileprivate extension BNActionView {
     }
     
     private func _setupControl() {
-        backgroundColor = UIColor.white.withAlphaComponent(0.90)
         titleLabel.textColor = titleColor
         titleLabel.text = action?.title
         addTarget(self, action: #selector(_didTap), for: .touchUpInside)

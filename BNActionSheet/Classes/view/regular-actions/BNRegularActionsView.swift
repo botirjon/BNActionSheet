@@ -11,6 +11,8 @@ import UIKit
 
 internal class BNRegularActionsView: UIScrollView, BNRegularActionsViewInstaller {
     
+    var blurView: UIVisualEffectView!
+    
     var stackView: UIStackView!
     
     var mainView: UIView { self }
@@ -50,6 +52,7 @@ internal class BNRegularActionsView: UIScrollView, BNRegularActionsViewInstaller
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        blurView.frame = self.bounds
         updateContentSize()
         invalidateIntrinsicContentSize()
     }
@@ -86,6 +89,7 @@ internal class BNRegularActionsView: UIScrollView, BNRegularActionsViewInstaller
             let actionView = BNActionView()
             actionView.action = action
             actionView.translatesAutoresizingMaskIntoConstraints = false
+            actionView.backgroundColor = .clear
             actionView.didTap = { self.didTapActionView?(action) }
             stackView.addArrangedSubview(actionView)
             if index < max(0, actions.count-1) {

@@ -16,6 +16,7 @@ internal protocol BNActionViewInstaller: ViewInstaller {
 
 internal extension BNActionViewInstaller {
     func initSubviews() {
+        
         blurView = UIVisualEffectView.init(effect: UIBlurEffect(style: .light))
         blurView.translatesAutoresizingMaskIntoConstraints = false
         blurView.isUserInteractionEnabled = false
@@ -29,6 +30,8 @@ internal extension BNActionViewInstaller {
         titleLabel.setContentHuggingPriority(.required, for: .horizontal)
         titleLabel.font = BNActionView.titleFont
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        mainView.backgroundColor = UIColor.white.withAlphaComponent(0.9)
     }
     
     func addSubviews() {
@@ -38,10 +41,10 @@ internal extension BNActionViewInstaller {
     
     func addSubviewConstraints() {
         NSLayoutConstraint.activate([
-            blurView.topAnchor.constraint(equalTo: self.mainView.topAnchor),
-            blurView.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor),
-            blurView.leftAnchor.constraint(equalTo: self.mainView.leftAnchor),
-            blurView.rightAnchor.constraint(equalTo: self.mainView.rightAnchor),
+//            blurView.topAnchor.constraint(equalTo: self.mainView.topAnchor),
+//            blurView.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor),
+//            blurView.leftAnchor.constraint(equalTo: self.mainView.leftAnchor),
+//            blurView.rightAnchor.constraint(equalTo: self.mainView.rightAnchor),
             
             titleLabel.centerXAnchor.constraint(equalTo: self.mainView.centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: self.mainView.centerYAnchor),
