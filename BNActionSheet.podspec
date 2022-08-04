@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  "An action sheet with the same look as Apple's UIAlertViewController with actionSheet style. Provides the ability to add a custom header at the top."
                        DESC
 
   s.homepage         = 'https://github.com/botirjon/BNActionSheet'

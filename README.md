@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/BNActionSheet.svg?style=flat)](https://cocoapods.org/pods/BNActionSheet)
 [![Platform](https://img.shields.io/cocoapods/p/BNActionSheet.svg?style=flat)](https://cocoapods.org/pods/BNActionSheet)
 
+## Description
+
+An action sheet with the same look as Apple's UIAlertViewController with actionSheet style. Provides the ability to add a custom header at the top.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
