@@ -73,6 +73,14 @@ class ViewController: UIViewController {
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+        
+        UIFont.familyNames.forEach { familyName in
+            print("- \(familyName)")
+            let fontNames = UIFont.fontNames(forFamilyName: familyName)
+            fontNames.forEach { fontName in
+                print("    + \(fontName)")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,7 +100,7 @@ class ViewController: UIViewController {
             actionSheet.addAction(action)
         }
         
-        actionSheet.addAction(.init(title: "Cancel", style: .cancel, handler: { _ in
+        actionSheet.addAction(.init(title: "Cancel", style: .cancel(font: UIFont.init(name: "Avenir-Book", size: 18)), handler: { _ in
             print("Did tap cancel action")
         }))
         

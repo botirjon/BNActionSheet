@@ -11,6 +11,7 @@ internal protocol BNActionViewInstaller: ViewInstaller {
     var blurView: UIVisualEffectView! { get set }
     var titleLabel: UILabel! { get set }
     var titleColor: UIColor { get }
+    var titleFont: UIFont { get }
 }
 
 
@@ -23,12 +24,12 @@ internal extension BNActionViewInstaller {
         
         titleLabel = UILabel()
         titleLabel.textColor = titleColor
+        titleLabel.font = titleFont
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.setContentHuggingPriority(.required, for: .vertical)
         titleLabel.isUserInteractionEnabled = false
         titleLabel.setContentHuggingPriority(.required, for: .horizontal)
-        titleLabel.font = BNActionView.titleFont
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         mainView.backgroundColor = UIColor.white.withAlphaComponent(0.9)

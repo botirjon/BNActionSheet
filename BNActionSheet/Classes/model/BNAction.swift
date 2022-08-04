@@ -25,7 +25,34 @@ public struct BNAction {
     
     public enum Style {
         case `default`
-        case cancel
+        case cancel(color: UIColor? = nil, font: UIFont? = nil)
         case destructive
+        case custom(color: UIColor, font: UIFont)
+        
+        internal var color: UIColor {
+            switch self {
+            case .default:
+                return .systemBlue
+            case .cancel(let color, _):
+                return color ?? .systemBlue
+            case .destructive:
+                return .systemRed
+            case .custom(let color, _):
+                return color
+            }
+        }
+        
+        internal var font: UIFont {
+            switch self {
+            case .default:
+                return .systemFont(ofSize: 18)
+            case .cancel(_, let font):
+                return font ?? .systemFont(ofSize: 18)
+            case .destructive:
+                return .systemFont(ofSize: 18)
+            case .custom(_, let font):
+                return font
+            }
+        }
     }
 }

@@ -126,7 +126,7 @@ internal extension BNRegularActionsView {
     
     func height() -> CGFloat {
         var height = actions.reduce(0) { partialResult, action in
-            return partialResult + BNActionView.contentHeight(title: action.title, width: UIScreen.main.bounds.size.width-2*8)
+            return partialResult + BNActionView.contentHeight(title: action.title, font: action.style.font, width: UIScreen.main.bounds.size.width-2*8)
         }
         
         height += (headerView?.frame.size.height ?? headerView?.intrinsicContentSize.height ?? 0)

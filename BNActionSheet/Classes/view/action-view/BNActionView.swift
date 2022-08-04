@@ -16,7 +16,6 @@ internal final class BNActionView: UIControl, BNActionViewInstaller {
     
     var mainView: UIView { self }
     
-    static let titleFont: UIFont = .systemFont(ofSize: 18)
     static let preferredDefaultHeight: CGFloat = 58
     
     internal var action: BNAction? {
@@ -80,16 +79,20 @@ internal final class BNActionView: UIControl, BNActionViewInstaller {
         didTap?()
     }
     
-    static func contentHeight(title: String, width: CGFloat) -> CGFloat {
-        return max(titleHeight(title: title, width: width) + 2*17, preferredDefaultHeight)
+    static func contentHeight(title: String, font: UIFont, width: CGFloat) -> CGFloat {
+        return max(titleHeight(title: title, font: font, width: width) + 2*17, preferredDefaultHeight)
     }
     
-    static func titleHeight(title: String, width: CGFloat) -> CGFloat {
-        return title.height(withConstrainedWidth: width-2*16, font: BNActionView.titleFont)
+    static func titleHeight(title: String, font: UIFont, width: CGFloat) -> CGFloat {
+        return title.height(withConstrainedWidth: width-2*16, font: font)
     }
     
     var titleColor: UIColor {
         return isTouching ? _titleColor.withAlphaComponent(0.5) : _titleColor
+    }
+    
+    var titleFont: UIFont {
+        style.font
     }
 }
 
@@ -108,20 +111,21 @@ fileprivate extension BNActionView {
     }
     
     private var _contentHeight: CGFloat {
-        return BNActionView.contentHeight(title: action?.title ?? "", width: self.bounds.size.width-2*16)
+        return BNActionView.contentHeight(title: action?.title ?? "", font: titleLabel.font, width: self.bounds.size.width-2*16)
     }
     
     private var _titleHeight: CGFloat {
-        return BNActionView.titleHeight(title: action?.title ?? "", width: self.bounds.size.width-2*16)
+        return BNActionView.titleHeight(title: action?.title ?? "", font: titleLabel.font, width: self.bounds.size.width-2*16)
     }
     
     private var _titleColor: UIColor {
-        switch style {
-        case .`default`, .cancel:
-            return UIColor(red: 0, green: 0.333, blue: 0.846, alpha: 1)
-        case .destructive:
-            return UIColor(red: 0.918, green: 0, blue: 0, alpha: 1)
-        }
+        style.color
+//        switch style {
+//        case .`default`, .cancel:
+//            return UIColor(red: 0, green: 0.333, blue: 0.846, alpha: 1)
+//        case .destructive:
+//            return UIColor(red: 0.918, green: 0, blue: 0, alpha: 1)
+//        }
     }
 }
 
